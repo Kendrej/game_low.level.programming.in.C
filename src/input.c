@@ -5,6 +5,7 @@
 #include "board.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "save.h"
 
 #define TILE_SIZE 100
 
@@ -44,6 +45,8 @@ bool handle_input(void) {
                 case ALLEGRO_KEY_LEFT:  move_cursor_left();  break;
                 case ALLEGRO_KEY_RIGHT: move_cursor_right(); break;
                 case ALLEGRO_KEY_SPACE: select_piece();      break;
+                case ALLEGRO_KEY_S: save_game("save/save1.txt"); break;
+                case ALLEGRO_KEY_L: load_game("save/save1.txt"); break;
                 case ALLEGRO_KEY_ESCAPE:return false;
             }
         }
@@ -234,4 +237,8 @@ int move_selected_piece(void) {
     }
 
     return 0;
+}
+
+void set_current_player(PieceColor color) {
+    current_player = color;
 }

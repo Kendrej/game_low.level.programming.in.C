@@ -16,3 +16,4 @@ int has_additional_jump(int x, int y, PieceColor color);
 int has_additional_jump_for_player(PieceColor color);
 int any_move_available(PieceColor color);
 int any_piece_left(PieceColor color);
+void set_current_player(PieceColor color);

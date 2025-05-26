@@ -4,6 +4,7 @@
         "keyboard.h": "c",
         "events.h": "c",
         "stdio.h": "c",
-        "allegro_font.h": "c"
+        "allegro_font.h": "c",
+        "save.h": "c"
     }
 }
