@@ -4,32 +4,18 @@
 
 static Piece board[8][8];
 
-void init_board() {
-    for (int y = 0; y < 8; y++) {
-        for (int x = 0; x < 8; x++) {
-            board[y][x].color = NONE;
-            board[y][x].isQueen = 0;
-        }
-    }
+void init_board(void) {
+    for(int y=0;y<8;y++)
+        for(int x=0;x<8;x++)
+            board[y][x] = (Piece){ NONE, 0 };
 
-    // Czarne pionki (góra)
-    for (int y = 0; y < 3; y++) {
-        for (int x = 0; x < 8; x++) {
-            if ((x + y) % 2 == 1) {
-                board[y][x].color = BLACK;
-            }
-        }
-    }
+    for(int y=0;y<3;y++)
+        for(int x=0;x<8;x++)
+            if((x+y)%2==1) board[y][x] = (Piece){ BLACK, 0 };
 
-    // Białe pionki (dół)
-    for (int y = 5; y < 8; y++) {
-        for (int x = 0; x < 8; x++) {
-            if ((x + y) % 2 == 1) {
-                board[y][x].color = WHITE;
-            }
-        }
-    }
-
+    for(int y=5;y<8;y++)
+        for(int x=0;x<8;x++)
+            if((x+y)%2==1) board[y][x] = (Piece){ WHITE, 0 };
 }
 
 void draw_pieces() {
@@ -51,7 +37,6 @@ void draw_pieces() {
             }
         }
     }
-    //al_flip_display();
 }
 
 Piece get_piece(int x, int y) {
